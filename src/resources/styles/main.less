@@ -1,0 +1,28 @@
+@import "variables";
+
+body, html {
+  font-family: @main-font;
+  font-weight: 600;
+  font-style: normal;
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #root, .app {
+  height: 100%;
+  width: 100%;
+  min-width: 1200px;
+}
+
+html {
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
+input, textarea {
+  &:focus::placeholder {
+    color: transparent !important;
+  }
+}

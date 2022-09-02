@@ -1,0 +1,33 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #E7F0F8;
+  gap: 10px;
+  padding-top: 25px;
+  padding-right: 10px;
+  height: 100%;
+  .icon {
+    &, svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    padding: 6px;
+  }
+
+  .active, .icon:hover {
+    background-color: #1975FF;
+    border-radius: 7px;
+    svg {
+      fill: #1975FF;
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+
+  .line {
+    border-bottom: 1px solid #E7F0F8;
+    width: calc(100% + 10px);
+  }
+}
