@@ -1,0 +1,127 @@
+.footer {
+  background: #F4F8FB;
+  width: 100%;
+  padding: 60px 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .logo-container {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+
+      .logo {
+        background: url(../svg/logo.svg);
+        width: 53px;
+        height: 45px;
+      }
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 55px;
+      }
+    }
+    .heading {
+      font-size: 24px;
+      line-height: 24px;
+      color: #1975FF;
+    }
+
+    .sub-heading {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: #3D4A56;
+    }
+
+    .text {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 145%;
+      color: #616872;
+      width: 180px;
+    }
+  }
+
+  .payments {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6.5px;
+    width: 590px;
+    margin: auto 0 auto 90px;
+
+    div {
+      width: 78.98px;
+      height: 41.81px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .tinkoff, .ur-pay, .yoo-money, .paddle {
+      width: 120.79px;
+      height: 41.81px;
+    }
+
+    .tinkoff {
+      background: url(../svg/tinkoff-icon.svg) no-repeat;
+    }
+    .ur-pay {
+      background: url(../svg/ur-pay-icon.svg) no-repeat;
+    }
+    .apple-pay {
+      background: url(../svg/apple-pay-icon.svg) no-repeat;
+    }
+    .google-pay {
+      background: url(../svg/google-pay-icon.svg) no-repeat;
+    }
+    .sber-pay {
+      background: url(../svg/sber-pay-icon.svg) no-repeat;
+    }
+    .qiwi {
+      background: url(../svg/qiwi-icon.svg) no-repeat;
+    }
+    .mastercard {
+      background: url(../svg/mastercard-icon.svg) no-repeat;
+    }
+    .visa {
+      background: url(../svg/visa-icon.svg) no-repeat;
+    }
+    .mir {
+      background: url(../svg/mir-icon.svg) no-repeat;
+    }
+    .sbp {
+      background: url(../svg/sbp-icon.svg) no-repeat;
+    }
+    .yoo-money {
+      background: url(../svg/yoo-money-icon.svg) no-repeat;
+    }
+    .paddle {
+      background: url(../svg/paddle-icon.svg) no-repeat;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: auto 0 auto 70px;
+
+    a {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 145%;
+      color: #616872;
+      text-decoration: none;
+    }
+  }
+}

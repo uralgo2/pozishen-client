@@ -93,7 +93,8 @@
       .header {
         display: flex;
         flex-direction: row;
-        padding: 25px 25px 25px 20px;
+        height: 73px;
+        padding: 0 25px 0 20px;
         gap: 20px;
         border-bottom: 2px solid #E7F0F8;
 
@@ -108,7 +109,7 @@
           margin: auto 0;
 
           &.filter {
-            margin-bottom: -5px;
+            padding-top: 5px;
           }
         }
 
@@ -128,6 +129,67 @@
 
         .name {
           width: 305px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .search-icon {
+            display: none;
+          }
+          &:hover {
+            cursor: pointer;
+
+            .search-icon {
+              display: block;
+              margin: auto 10px;
+              width: 22px;
+              height: 22px;
+
+              &:hover {
+                svg path {
+                  stroke: #1975FF;
+                }
+              }
+            }
+          }
+        }
+
+        .search-container {
+          width: 305px;
+          .search-input-container {
+            background: #F4F8FB;
+            border: 2px solid #E7F0F8;
+            border-radius: 7px;
+            padding: 0;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+
+            .search-icon {
+              display: block;
+              margin: auto 10px;
+              background: url(../svg/search-icon.svg) no-repeat;
+              width: 22px;
+              height: 22px;
+              background-size: 22px;
+            }
+
+            .search-input {
+              border: none;
+              outline: none;
+
+              font-weight: 400;
+              font-size: 17px;
+              line-height: 23px;
+
+              color: #34495E;
+
+              margin: auto 0;
+              background: transparent;
+              flex-grow: 1;
+              padding-right: 10px;
+              padding-left: 10px;
+            }
+          }
         }
 
         .collection-date {
@@ -152,7 +214,7 @@
         .project {
           display: flex;
           flex-direction: row;
-          padding: 15px 25px 15px 25px;
+          padding: 15px 25px 15px 20px;
           border-bottom: 1px solid #E7F0F8;
           gap: 20px;
           height: 24px;
@@ -161,10 +223,24 @@
             margin: auto 0;
           }
 
+          .marker-container {
+            width: 22px;
+            //background: red;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            //content: ' ';
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
           .marker {
             width: 12px;
             height: 12px;
             border-radius: 50%;
+            margin: auto;
 
             &.green {
               background: #73C571;
@@ -240,7 +316,7 @@
             width: 305px;
             display: flex;
             flex-direction: row;
-
+            margin-left: -5px;
             justify-content: space-between;
 
             .right {
@@ -261,6 +337,19 @@
               }
             }
 
+            &:hover .right {
+              display: flex;
+              flex-direction: row;
+              gap: 8px;
+
+              svg:hover, svg.active {
+                path {
+                  stroke: #1975FF;
+                }
+
+                cursor: pointer;
+              }
+            }
           }
 
           .collection-date {
@@ -278,7 +367,19 @@
               }
             }
 
-            .restart.button {
+            &:not(.not-collected) .restart.button {
+              display: none;
+            }
+            &.not-collected .date-time {
+              display: none;
+            }
+
+            &:hover .date-time {
+              display: none;
+            }
+
+            &:hover .restart.button,
+            &.not-collected .restart.button {
               display: flex;
               flex-direction: row;
               gap: 7px;
@@ -292,7 +393,7 @@
               margin-left: auto;
               margin-right: auto;
 
-              &:hover {
+              &:not([disabled]):hover {
                 cursor: pointer;
                 font-weight: 600;
                 svg path {
@@ -300,6 +401,9 @@
                 }
 
                 color: #1975FF;
+              }
+              &[disabled]:hover {
+                cursor: not-allowed;
               }
             }
           }
@@ -359,21 +463,9 @@
 
           &:hover {
             background: #F4F8FB;
-
-            .right {
-              display: flex;
-              flex-direction: row;
-              gap: 8px;
-
-              svg:hover, svg.active {
-                path {
-                  stroke: #1975FF;
-                }
-
-                cursor: pointer;
-              }
-            }
           }
+
+
         }
 
       }

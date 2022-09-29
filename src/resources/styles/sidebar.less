@@ -5,29 +5,221 @@
   gap: 10px;
   padding-top: 25px;
   padding-right: 10px;
-  height: 100%;
-  .icon {
-    &, svg {
-      width: 20px;
-      height: 20px;
+  transition: 0.5s;
+
+  width: 200px;
+
+  a, .expand-container {
+    margin-left: 10px;
+  }
+
+  &:not(.expanded) {
+    .label {
+      display: none;
     }
 
-    padding: 6px;
+    a, .expand-container {
+      width: 35px;
+    }
+
+    width: 50px;
+    padding-right: 10px;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
   }
 
   .active, .icon:hover {
     background-color: #1975FF;
     border-radius: 7px;
-    svg {
-      fill: #1975FF;
-      path {
-        stroke: #fff;
-      }
+    fill: #1975FF;
+
+    &.percentage path {
+      fill: #fff;
     }
+
+    &:not(.percentage) path {
+      stroke: #fff;
+    }
+  }
+
+  a, .expand-container {
+    display: grid;
+    grid-template-columns: 35px 150px;
+    gap: 10px;
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .label {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 35px;
+      color: #616872;
+      overflow: hidden;
+    }
+
+    overflow: hidden;
   }
 
   .line {
     border-bottom: 1px solid #E7F0F8;
     width: calc(100% + 10px);
+    margin: 20px 0;
   }
+}
+
+.invite-checkboxes{
+  gap: 20px;
+  label {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+  }
+}
+
+.body.invite form{
+  gap: 40px;
+
+  .row.link {
+    justify-content: space-between;
+    background: #F4F8FB;
+    border-radius: 7px;
+
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 50px;
+    color: #3D4A56;
+
+    padding-left: 15px;
+
+    .cpy {
+      width: 50px;
+      height: 50px;
+
+
+      background-position: center;
+      border: none;
+      background-color: #E7F0F8;
+      border-radius: 7px;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.1111 13.2222H18.7778C20.0051 13.2222 21 12.2273 21 11V3.22222C21 1.99492 20.0051 1 18.7778 1H11C9.7727 1 8.77778 1.99492 8.77778 3.22222V4.88889M3.22222 21H11C12.2273 21 13.2222 20.0051 13.2222 18.7778V11C13.2222 9.7727 12.2273 8.77778 11 8.77778H3.22222C1.99492 8.77778 1 9.7727 1 11V18.7778C1 20.0051 1.99492 21 3.22222 21Z' stroke='%231975FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+.modal.refresh {
+
+  .load2 {
+  }
+  .body {
+    gap: 0 !important;
+    margin: 0 !important;
+    padding-bottom: 60px;
+    width: 430px;
+  }
+
+  .head {
+    border-bottom: none !important;
+  }
+  .heading {
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #3D4A56;
+    margin: 0 auto;
+  }
+
+  .sub-heading {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    color: #3D4A56;
+    max-width: 234px;
+    margin: 0 auto;
+  }
+}
+
+@background: #FFF;
+@foreground: #1975FF;
+
+.load2 {
+
+  .loader,
+  .loader:before,
+  .loader:after {
+    border-radius:50%;
+  }
+
+  .loader {
+    color:@foreground;
+    font-size:6px;
+    text-indent:-99999em;
+    margin:55px auto;
+    position:relative;
+    width:60px;
+    height:60px;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+
+    &:before,
+    &:after {
+      position:absolute;
+      content:'';
+    }
+
+    &:before {
+      width:31.2px;
+      height:61.2px;
+      background: @background;
+      border-radius: 61.2px 0 0 61.2px;
+      top:-0.6px;
+      left:-0.6px;
+      -webkit-transform-origin:30.6px 30.6px;
+      transform-origin:30.6px 30.6px;
+      -webkit-animation:load2 2s infinite ease 1.5s;
+      animation:load2 2s infinite ease 1.5s;
+    }
+
+    &:after {
+      width:31.2px;
+      height:61.2px;
+      background: @background;
+      border-radius: 0 61.2px 61.2px 0;
+      top:-0.6px;
+      left:29.4px;
+      -webkit-transform-origin:0.6px 30.6px;
+      transform-origin:0.6px 30.6px;
+      -webkit-animation:load2 2s infinite ease;
+      animation:load2 2s infinite ease;
+    }
+
+  }
+
+}
+
+@-webkit-keyframes load2 {.load2-frames;}
+@keyframes load2 {.load2-frames;}
+
+.load2-frames() {
+
+  0% {
+    -webkit-transform:rotate(0deg);
+    transform:rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+  }
+
 }

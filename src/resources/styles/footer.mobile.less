@@ -1,0 +1,57 @@
+.footer {
+  padding: 40px 0;
+
+  flex-direction: column;
+  justify-content: unset;
+  gap: 20px;
+
+  & > div {
+    margin: 0 auto !important;
+  }
+
+  .text, .links {
+    text-align: center;
+  }
+
+  .payments {
+    order: 1;
+    width: 340px;
+    justify-content: center;
+    .tinkoff {
+      order: 0;
+    }
+    .ur-pay {
+      order: 1;
+    }
+    .apple-pay {
+      order: 2;
+    }
+    .google-pay {
+      order: 7;
+    }
+    .sber-pay {
+      order: 8;
+    }
+    .qiwi {
+      order: 9;
+    }
+    .mastercard {
+      order: 3;
+    }
+    .visa {
+      order: 4;
+    }
+    .mir {
+      order: 5;
+    }
+    .sbp {
+      order: 6;
+    }
+    .yoo-money {
+      order: 10;
+    }
+    .paddle {
+      order: 11;
+    }
+  }
+}

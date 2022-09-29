@@ -54,10 +54,12 @@ export interface IProject {
  */
 
 export interface IGroup {
-    id: Number,
-    projectId: Number,
-    groupName: String,
-    queriesCount: Number
+    id: number,
+    projectId: number,
+    groupName: string,
+    queriesCount: number
+    subgroups: ISubgroup[]
+    marker: string
 }
 
 /**
@@ -71,10 +73,11 @@ export interface IGroup {
  */
 
 export interface ISubgroup {
-    id: Number,
-    groupId: Number,
-    subgroupName: String,
-    queriesCount: Number
+    id: number,
+    groupId: number,
+    subgroupName: string,
+    queriesCount: number
+    marker: string
 }
 /**
  * @name Subgroup
@@ -87,9 +90,9 @@ export interface ISubgroup {
  */
 
 export interface ICity {
-    id: Number,
-    projectId: Number,
-    cityName: String,
+    id: number,
+    projectId: number,
+    cityName: string,
 }
 
 /**
@@ -102,9 +105,11 @@ export interface ICity {
  */
 
 export interface ISearchingQuery {
-    id: Number,
-    groupId: Number,
-    queryText: String,
+    id: number,
+    groupId: number,
+    queryText: string,
+    subgroupId: number,
+    frequency?: number
 }
 
 /**
@@ -117,17 +122,17 @@ export interface ISearchingQuery {
  */
 
 export interface IPosition {
-    id: Number,
-    queryId: Number,
-    subgroupId: Number,
-    place: Number,
+    id: number,
+    queryId: number,
+    subgroupId: number,
+    place: number,
     lastCollection: Date,
-    queryText: String,
-    cityCollection: String,
-    groupId: Number,
-    projectId: Number,
-    engineCollection: String,
-    foundAddress: String
+    queryText: string,
+    cityCollection: string,
+    groupId: number,
+    projectId: number,
+    engineCollection: string,
+    foundAddress: string
 }
 /**
  * @name Position
@@ -146,10 +151,17 @@ export interface IPosition {
  * }}
  */
 
-export type XLSXImportQuery = [String, String, String?]
+export type XLSXImportQuery = [string, string, string?]
 /**
  * @name XLSXImportQuery
  * @type {
  *     [String, String, String?]
  * }
  */
+
+export interface IFrequency {
+    id: number
+    queryText: string
+    cityName: string
+    frequency: number
+}
